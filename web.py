@@ -1,7 +1,10 @@
 import streamlit as st
 from LinFun import lineika
 import locale
-locale.setlocale(locale.LC_ALL, 'uk_UA.UTF-8')
+try:
+    locale.setlocale(locale.LC_TIME, 'uk_UA.utf8')  # або 'uk_UA.utf-8'
+except locale.Error as e:
+    print(f"Не вдалося встановити локаль: {e}")
 
 
 st.markdown("<h1 style='text-align: center; font-family: Helvetica, sans-serif; font-weight: bold;'>Проект 'П'</h1>", unsafe_allow_html=True)
